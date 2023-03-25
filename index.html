@@ -9,28 +9,59 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <h1>Book Library</h1>
+    <nav>
+      <h1>Book Library</h1>
+      <div class="showForm" id="showForm">
+        <p class="plusSign">+</p>
+        <p class="showFormText">Add Book</p>
+      </div>
+    </nav>
 
-    <form action="#">
-      <div class="formDiv">
-        <label for="title" class="title">Title</label>
-        <input type="text" name="title" id="title" />
+    <main>
+      <form id="add-book-form" action="#">
+        <div class="formDiv">
+          <label for="title" class="title">Title:</label>
+          <input type="text" name="title" id="title" />
+        </div>
+        <div class="formDiv">
+          <label for="author" class="author">Author:</label>
+          <input type="text" name="author" id="author" />
+        </div>
+        <div class="formDiv">
+          <label for="pages" class="pages">Pages:</label>
+          <input type="number" name="pages" id="pages" />
+        </div>
+        <div class="formDiv">
+          <label for="bookType" class="bookType">Type:</label>
+          <select name="bookType" id="bookType">
+            <option value="Fiction">Fiction</option>
+            <option value="Non-Fiction">Non-Fiction</option>
+          </select>
+        </div>
+        <div class="formDiv">
+          <label for="read" class="read">Read?</label>
+          <div class="read-button" id="read-button">Yes</div>
+          <!-- <input type="checkbox" name="read" id="read" value="" /> -->
+        </div>
+        <div class="formDiv">
+          <button class="addBookBtn" id="addBookBtn">Add Book</button>
+        </div>
+      </form>
+
+      <div class="catalogCard" id="catalogCard">
+        <h3 class="cardTitle card-text" id="cardTitle">The Hobbit</h3>
+        <h4 class="cardAuthor card-text" id="cardAuthor">
+          Author: J.R.R. Tolken
+        </h4>
+        <p class="cardPages card-text" id="cardPages">Pages: 345</p>
+        <p class="cardBookType card-text" id="cardBookType">Type: Fiction</p>
+        <div
+          class="read-button card-read-button card-btn"
+          id="card-read-button"
+        >
+          Yes
+        </div>
       </div>
-      <div class="formDiv">
-        <label for="author" class="author">Author</label>
-        <input type="text" name="author" id="author" />
-      </div>
-      <div class="formDiv">
-        <label for="pages" class="pages">Pages</label>
-        <input type="number" name="pages" id="pages" />
-      </div>
-      <div class="formDiv">
-        <input type="checkbox" name="read" id="read" />
-        <label for="read" class="read">Read</label>
-      </div>
-      <div class="formDiv">
-        <button id="addButton">Add Book</button>
-      </div>
-    </form>
+    </main>
   </body>
 </html>

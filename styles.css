@@ -1,1 +1,121 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+:root {
+}
+
+body {
+  background-color: rgb(237, 230, 222);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin: 2rem; */
+  padding: 1rem;
+  border-bottom: 1px solid rgb(187, 187, 187);
+  background-color: white;
+}
+
+.showForm {
+  width: fit-content;
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 5px;
+  background-color: rgb(111, 111, 255);
+  color: white;
+  cursor: pointer;
+}
+
+.showForm:hover {
+  box-shadow: 0 0 0.25rem 0 rgb(187, 187, 187);
+  background-color: rgb(82, 82, 255);
+}
+
+.plusSign {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+form {
+  display: none;
+  width: fit-content;
+  padding: 0.5rem;
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 5px;
+  box-shadow: 0 0 0.25rem 0 rgb(187, 187, 187);
+  background-color: #fff;
+}
+
+.formDiv {
+  padding: 0.25rem;
+}
+
+label {
+  width: 55px;
+  display: inline-block;
+}
+
+.addBookBtn {
+  padding: 0.25rem;
+  background-color: rgb(255, 193, 170);
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.addBookBtn:hover {
+  background-color: coral;
+  box-shadow: 0 0 0.25rem 0 rgb(187, 187, 187);
+}
+
+.read-button {
+  display: inline;
+  padding: 0.25rem;
+  width: fit-content;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(51, 118, 0);
+  color: white;
+}
+
+.read-button.disabled {
+  background-color: rgb(168, 10, 10);
+}
+
+.read-button:hover {
+  box-shadow: 0 0 0.25rem 0 rgb(187, 187, 187);
+}
+
+.catalogCard {
+  display: grid;
+  grid-template-columns: auto;
+  width: fit-content;
+  padding: 0.5rem;
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 5px;
+  box-shadow: 0 0 0.25rem 0 rgb(187, 187, 187);
+  background-color: white;
+}
+
+.card-text {
+  margin: 0.5rem;
+}
+
+.card-btn {
+  align-self: end;
+  justify-self: end;
+}
