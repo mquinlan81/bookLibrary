@@ -5,7 +5,10 @@ const readBtn = document.getElementById("read-button");
 const bookType = document.getElementById("bookType");
 const showForm = document.getElementById("showForm");
 const addBookForm = document.querySelector("form");
+const main = document.querySelector("main");
+// const main = document.querySelector("main");
 
+//Form & Array Controls
 let myLibrary = [];
 
 function Book(title, author, pages, bookType, read) {
@@ -16,7 +19,6 @@ function Book(title, author, pages, bookType, read) {
   this.read = read;
 }
 
-//Add validation to form
 const addBook = (ev) => {
   ev.preventDefault;
   let newBook = new Book(
@@ -29,30 +31,32 @@ const addBook = (ev) => {
   myLibrary.push(newBook);
   document.querySelector("form").reset();
   addBookForm.style.display = "none";
+  createCard2(newBook);
 };
 
 document.getElementById("addBookBtn").addEventListener("click", addBook);
 
-let sampleBook = new Book("The Hobbit", "J.R.R. Tolken", 295, "fiction", "Yes");
+//------   Sample Books Added to Array ------------
+let sampleBook = new Book("The Hobbit", "J.R.R. Tolken", 295, "Fiction", "Yes");
 myLibrary.push(sampleBook);
 
 let sampleBook2 = new Book(
   "Lord of the Rings",
   "J.R.R. Tolken",
   337,
-  "fiction",
+  "Fiction",
   "No"
 );
 myLibrary.push(sampleBook2);
 
 const bookRead = (ev) => {
   ev.preventDefault;
-  readBtn.classList.toggle("disabled");
-  if (readBtn.textContent === "Yes") {
-    readBtn.textContent = "No";
-    this.value = false;
-  } else {
+  readBtn.classList.toggle("read");
+  if (readBtn.textContent === "No") {
     readBtn.textContent = "Yes";
+    // this.value = false;
+  } else {
+    readBtn.textContent = "No";
     // value = true;
   }
 };
@@ -66,3 +70,53 @@ showForm.addEventListener("click", () => {
     addBookForm.style.display = "none";
   }
 });
+
+//creating the catalog card
+
+function BookCard(prop) {
+  const catalogCard = document.createElement("div");
+  const ccTitle = document.createElement("h3");
+  const ccAuthor = document.createElement("h4");
+  const ccPages = document.createElement("p");
+  const ccType = document.createElement("p");
+  const ccReadBtn = document.createElement("div");
+
+  catalogCard.classList.add("catalogCard");
+  ccTitle.classList.add("card-text");
+  ccAuthor.classList.add("card-text");
+  ccPages.classList.add("card-text");
+  ccType.classList.add("card-text");
+  ccReadBtn.classList.add("read-button");
+  ccReadBtn.classList.add("card-read-button");
+  ccReadBtn.classList.add("card-btn");
+
+  main.appendChild(catalogCard);
+  catalogCard.appendChild(ccTitle);
+  catalogCard.appendChild(ccAuthor);
+  catalogCard.appendChild(ccPages);
+  catalogCard.appendChild(ccType);
+  catalogCard.appendChild(ccReadBtn);
+
+  ccTitle.textContent = `${prop.title}`;
+  ccAuthor.textContent = `Author: ${prop.author}`;
+  ccPages.textContent = `Pages: ${prop.pages}`;
+  ccType.textContent = `Type: ${prop.bookType}`;
+  ccReadBtn.textContent = `${prop.read}`;
+
+  if (prop.read === "Yes") {
+    catalogCard.classList.add("read");
+    ccReadBtn.classList.add("read");
+  }
+}
+
+function createCard2(prop) {
+  let newCard = BookCard(prop);
+}
+
+function createCard() {
+  myLibrary.forEach((prop) => {
+    let newCard = BookCard(prop);
+  });
+}
+
+createCard();

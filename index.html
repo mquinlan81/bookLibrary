@@ -17,51 +17,54 @@
       </div>
     </nav>
 
-    <main>
-      <form id="add-book-form" action="#">
-        <div class="formDiv">
-          <label for="title" class="title">Title:</label>
-          <input type="text" name="title" id="title" />
-        </div>
-        <div class="formDiv">
-          <label for="author" class="author">Author:</label>
-          <input type="text" name="author" id="author" />
-        </div>
-        <div class="formDiv">
-          <label for="pages" class="pages">Pages:</label>
-          <input type="number" name="pages" id="pages" />
-        </div>
-        <div class="formDiv">
-          <label for="bookType" class="bookType">Type:</label>
-          <select name="bookType" id="bookType">
-            <option value="Fiction">Fiction</option>
-            <option value="Non-Fiction">Non-Fiction</option>
-          </select>
-        </div>
-        <div class="formDiv">
-          <label for="read" class="read">Read?</label>
-          <div class="read-button" id="read-button">Yes</div>
-          <!-- <input type="checkbox" name="read" id="read" value="" /> -->
-        </div>
-        <div class="formDiv">
-          <button class="addBookBtn" id="addBookBtn">Add Book</button>
-        </div>
-      </form>
+    <form id="add-book-form" action="#">
+      <div class="formDiv">
+        <label for="title" class="title">Title:</label>
+        <input type="text" name="title" id="title" />
+      </div>
+      <div class="formDiv">
+        <label for="author" class="author">Author:</label>
+        <input type="text" name="author" id="author" />
+      </div>
+      <div class="formDiv">
+        <label for="pages" class="pages">Pages:</label>
+        <input type="number" name="pages" id="pages" />
+      </div>
+      <div class="formDiv">
+        <label for="bookType" class="bookType">Type:</label>
+        <select name="bookType" id="bookType">
+          <option value="Fiction">Fiction</option>
+          <option value="Non-Fiction">Non-Fiction</option>
+        </select>
+      </div>
+      <div class="formDiv">
+        <label for="read" class="read">Read?</label>
+        <div class="read-button" id="read-button">No</div>
+        <!-- <input type="checkbox" name="read" id="read" value="" /> -->
+      </div>
+      <div class="formDiv">
+        <button class="addBookBtn" id="addBookBtn">Add Book</button>
+      </div>
+    </form>
 
-      <div class="catalogCard" id="catalogCard">
+    <main class="bookList" id="bookList">
+      <!-- <div class="catalogCard read" id="catalogCard">
         <h3 class="cardTitle card-text" id="cardTitle">The Hobbit</h3>
         <h4 class="cardAuthor card-text" id="cardAuthor">
           Author: J.R.R. Tolken
         </h4>
         <p class="cardPages card-text" id="cardPages">Pages: 345</p>
         <p class="cardBookType card-text" id="cardBookType">Type: Fiction</p>
-        <div
-          class="read-button card-read-button card-btn"
-          id="card-read-button"
-        >
-          Yes
+        <div class="cardReadNote" id="cardReadNote">
+          <p class="read-btn-text">Read</p>
+          <div
+            class="read-button card-read-button card-btn"
+            id="card-read-button"
+          >
+            Yes
+          </div>
         </div>
-      </div>
+      </div> -->
     </main>
   </body>
 </html>

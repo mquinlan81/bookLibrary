@@ -13,16 +13,17 @@ body {
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  /* margin: 2rem; */
-  padding: 1rem;
-  border-bottom: 1px solid rgb(187, 187, 187);
+  padding: 0.5rem;
+  /* border-bottom: 1px solid rgb(187, 187, 187); */
+  box-shadow: 0 0 1rem 1px rgb(187, 187, 187);
   background-color: white;
 }
 
 .showForm {
   width: fit-content;
+  scale: 70%;
   text-align: center;
   padding: 0.5rem;
   border: 1px solid rgb(187, 187, 187);
@@ -30,11 +31,13 @@ nav {
   background-color: rgb(111, 111, 255);
   color: white;
   cursor: pointer;
+  transition: 250ms;
 }
 
 .showForm:hover {
   box-shadow: 0 0 0.25rem 0 rgb(187, 187, 187);
   background-color: rgb(82, 82, 255);
+  scale: 75%;
 }
 
 .plusSign {
@@ -44,12 +47,17 @@ nav {
 
 main {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   margin: 1rem;
 }
 
 form {
   display: none;
+  margin-top: 1rem;
+  margin-right: auto;
+  margin-left: auto;
   width: fit-content;
   padding: 0.5rem;
   border: 1px solid rgb(187, 187, 187);
@@ -88,12 +96,12 @@ label {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: rgb(51, 118, 0);
+  background-color: rgb(168, 10, 10);
   color: white;
 }
 
-.read-button.disabled {
-  background-color: rgb(168, 10, 10);
+.read-button.read {
+  background-color: rgb(51, 118, 0);
 }
 
 .read-button:hover {
@@ -103,19 +111,36 @@ label {
 .catalogCard {
   display: grid;
   grid-template-columns: auto;
-  width: fit-content;
+  width: 185px;
   padding: 0.5rem;
   border: 1px solid rgb(187, 187, 187);
   border-radius: 5px;
-  box-shadow: 0 0 0.25rem 0 rgb(187, 187, 187);
+  box-shadow: 0 0 0.5rem 0.1rem rgb(168, 10, 10);
   background-color: white;
+}
+
+.catalogCard.read {
+  box-shadow: 0 0 0.5rem 0.1rem rgb(51, 118, 0);
 }
 
 .card-text {
   margin: 0.5rem;
 }
 
+.read-btn-text {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
 .card-btn {
+  margin-left: 0.25rem;
+  align-items: center;
+  align-self: end;
+  justify-self: end;
+}
+.cardReadNote {
+  display: flex;
+  align-items: center;
   align-self: end;
   justify-self: end;
 }
