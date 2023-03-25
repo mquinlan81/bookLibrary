@@ -6,7 +6,6 @@ const bookType = document.getElementById("bookType");
 const showForm = document.getElementById("showForm");
 const addBookForm = document.querySelector("form");
 const main = document.querySelector("main");
-// const main = document.querySelector("main");
 
 //Form & Array Controls
 let myLibrary = [];
@@ -31,7 +30,7 @@ const addBook = (ev) => {
   myLibrary.push(newBook);
   document.querySelector("form").reset();
   addBookForm.style.display = "none";
-  createCard2(newBook);
+  createCardBookAdded(newBook);
 };
 
 document.getElementById("addBookBtn").addEventListener("click", addBook);
@@ -54,10 +53,8 @@ const bookRead = (ev) => {
   readBtn.classList.toggle("read");
   if (readBtn.textContent === "No") {
     readBtn.textContent = "Yes";
-    // this.value = false;
   } else {
     readBtn.textContent = "No";
-    // value = true;
   }
 };
 
@@ -72,7 +69,6 @@ showForm.addEventListener("click", () => {
 });
 
 //creating the catalog card
-
 function BookCard(prop) {
   const catalogCard = document.createElement("div");
   const ccTitle = document.createElement("h3");
@@ -109,14 +105,14 @@ function BookCard(prop) {
   }
 }
 
-function createCard2(prop) {
+function createCardBookAdded(prop) {
   let newCard = BookCard(prop);
 }
 
-function createCard() {
+function createCardPageLoad() {
   myLibrary.forEach((prop) => {
     let newCard = BookCard(prop);
   });
 }
 
-createCard();
+createCardPageLoad();
