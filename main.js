@@ -1,4 +1,6 @@
 const title = document.getElementById("title");
+const sortRead = document.getElementById("show-books-read");
+const sortNotRead = document.getElementById("show-books-not-read");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const readBtn = document.getElementById("read-button");
@@ -75,7 +77,9 @@ function BookCard(prop) {
   const ccAuthor = document.createElement("h4");
   const ccPages = document.createElement("p");
   const ccType = document.createElement("p");
-  const ccReadBtn = document.createElement("div");
+  const ccButtons = document.createElement("div");
+  const ccReadBtn = document.createElement("button");
+  const ccDeleteBtn = document.createElement("button");
 
   catalogCard.classList.add("catalogCard");
   ccTitle.classList.add("card-text");
@@ -85,24 +89,66 @@ function BookCard(prop) {
   ccReadBtn.classList.add("read-button");
   ccReadBtn.classList.add("card-read-button");
   ccReadBtn.classList.add("card-btn");
+  ccDeleteBtn.classList.add("ccDeleteBtn");
+  ccButtons.classList.add("ccButtons");
 
   main.appendChild(catalogCard);
   catalogCard.appendChild(ccTitle);
   catalogCard.appendChild(ccAuthor);
   catalogCard.appendChild(ccPages);
   catalogCard.appendChild(ccType);
-  catalogCard.appendChild(ccReadBtn);
+  catalogCard.appendChild(ccButtons);
+  ccButtons.appendChild(ccDeleteBtn);
+  ccButtons.appendChild(ccReadBtn);
 
   ccTitle.textContent = `${prop.title}`;
   ccAuthor.textContent = `Author: ${prop.author}`;
   ccPages.textContent = `Pages: ${prop.pages}`;
   ccType.textContent = `Type: ${prop.bookType}`;
   ccReadBtn.textContent = `${prop.read}`;
+  ccReadBtn.title = "Did you read this book?";
+  ccDeleteBtn.textContent = "X";
+  ccDeleteBtn.title = "Delete this book";
 
   if (prop.read === "Yes") {
     catalogCard.classList.add("read");
     ccReadBtn.classList.add("read");
   }
+
+  ccDeleteBtn.addEventListener("click", () => {
+    myLibrary.splice(prop, 1);
+    catalogCard.remove();
+  });
+
+  ccReadBtn.addEventListener("click", () => {
+    ccReadBtn.classList.toggle("read");
+    catalogCard.classList.toggle("read");
+    if (ccReadBtn.textContent === "No") {
+      ccReadBtn.textContent = "Yes";
+      prop.read = "Yes";
+    } else {
+      ccReadBtn.textContent = "No";
+      prop.read = "No";
+    }
+  });
+
+  sortRead.addEventListener("click", () => {
+    if (prop.read === "No" && catalogCard.style.display === "block") {
+      catalogCard.style.display = "none";
+    } else {
+      catalogCard.style.display = "block";
+    }
+  });
+
+  sortNotRead.addEventListener("click", () => {
+    if (prop.read === "Yes" && catalogCard.style.display === "block") {
+      catalogCard.style.display = "none";
+    } else {
+      catalogCard.style.display = "block";
+    }
+  });
+
+  // Functionality to add: Yes/No button change property of read and color of button, delete button to delete array item
 }
 
 function createCardBookAdded(prop) {

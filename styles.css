@@ -10,18 +10,31 @@ body {
 
 nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   padding: 0.5rem;
   /* border-bottom: 1px solid rgb(187, 187, 187); */
-  box-shadow: 0 0 1rem 1px rgb(187, 187, 187);
+  box-shadow: 0 0 1rem 3px rgb(125, 125, 125);
   background-color: white;
 }
+.menu {
+  display: flex;
+}
 
-.showForm {
-  width: fit-content;
-  scale: 70%;
+.sort-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.menu-button {
+  display: flex;
+  width: 100%;
+  scale: 90%;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   padding: 0.5rem;
   border: 1px solid rgb(187, 187, 187);
   border-radius: 5px;
@@ -31,15 +44,10 @@ nav {
   transition: 250ms;
 }
 
-.showForm:hover {
+.menu-button:hover {
   box-shadow: 0 0 0.25rem 0 rgb(187, 187, 187);
   background-color: rgb(82, 82, 255);
-  scale: 75%;
-}
-
-.plusSign {
-  font-size: 2.5rem;
-  font-weight: bold;
+  scale: 100%;
 }
 
 main {
@@ -121,12 +129,30 @@ label {
 }
 
 .card-text {
-  margin: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ccButtons {
+  display: flex;
+  justify-content: space-between;
 }
 
 .read-btn-text {
   font-size: 0.8rem;
   font-style: italic;
+}
+
+.ccDeleteBtn {
+  background-color: rgb(243, 243, 243);
+  border: 1px solid rgb(231, 231, 231);
+  padding: 0.25rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: sans-serif;
+  width: 23.5;
+  height: 23.5px;
+  color: rgb(190, 190, 190);
 }
 
 .card-btn {
